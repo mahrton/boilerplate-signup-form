@@ -1,0 +1,15 @@
+<!-- wrapper should be extracted as new pages are added -->
+<div class="page-wrapper" *ngIf="signUpForm">
+  <mat-card class="page-wrapper-narrow">
+    <form class="flex-fill">
+      <app-text-field title="First name" [control]="firstName"></app-text-field>
+      <app-text-field title="Last name" [control]="lastName"></app-text-field>
+      <app-email-field title="Email" [control]="email"></app-email-field>
+      <app-email-field title="Verify email" [control]="emailVerify"></app-email-field>
+      <app-password-field title="Password" [control]="password"></app-password-field>
+      <button type="button" class="footer-button" (click)="submit()" mat-raised-button color="accent" *ngIf="signUpForm.valid">
+        Sign up
+      </button>
+    </form>
+  </mat-card>
+</div>
