@@ -1,6 +1,6 @@
 <div class="full-width">
   <mat-form-field [style.width.%]="100" appearance="outline">
-    <mat-label *ngIf="title">{{ title }}</mat-label>
+    <mat-label *ngIf="title">{{ title | translate }}</mat-label>
     <input [formControl]="control" matInput type="email">
   </mat-form-field>
 </div>

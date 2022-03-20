@@ -1,0 +1,19 @@
+{
+  "BUTTONS": {
+    "SUBMIT": "Submit"
+  },
+  "FIELDS": {
+    "EMAIL": "Email",
+    "EMAIL_VERIFY": "Verify email",
+    "FIRST_NAME": "First name",
+    "LAST_NAME": "Last name",
+    "PASSWORD": "Password",
+    "PASSWORD_VERIFY": "Verify password"
+  },
+  "VALIDATION": {
+    "EMAIL_INVALID": "Email address is invalid",
+    "EMAIL_VERIFY_MISMATCH": "Email address does not match",
+    "PASSWORD_INVALID": "Please provide a strong password - it has to be minimum 8 characters, cannot contain your first and last name, and has to contain uppercase and lowercase letters",
+    "PASSWORD_VERIFY_MISMATCH": "Passwords do not match"
+  }
+}

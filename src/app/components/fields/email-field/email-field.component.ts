@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {TranslationKey} from "../../../global/types";
 
 @Component({
   selector: 'app-email-field',
@@ -8,5 +9,5 @@ import {FormControl} from "@angular/forms";
 })
 export class EmailFieldComponent {
   @Input() control = new FormControl();
-  @Input() title: string | null = null;
+  @Input() title: TranslationKey | null = null;
 }
