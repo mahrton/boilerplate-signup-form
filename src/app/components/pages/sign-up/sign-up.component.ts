@@ -14,12 +14,12 @@ import {
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  firstName = new FormControl(requiredValidator());
-  lastName = new FormControl(requiredValidator());
-  email = new FormControl(emailValidator());
-  emailVerify = new FormControl(emailVerifyValidator(this.email));
-  password = new FormControl(passwordValidator(this.firstName, this.lastName));
-  passwordVerify = new FormControl(passwordVerifyValidator(this.password));
+  firstName = new FormControl(null, requiredValidator());
+  lastName = new FormControl(null, requiredValidator());
+  email = new FormControl(null, emailValidator());
+  emailVerify = new FormControl(null, emailVerifyValidator(this.email));
+  password = new FormControl(null, passwordValidator(this.firstName, this.lastName));
+  passwordVerify = new FormControl(null, passwordVerifyValidator(this.password));
   signUpForm: FormGroup = new FormGroup({
     firstName: this.firstName,
     lastName: this.lastName,
