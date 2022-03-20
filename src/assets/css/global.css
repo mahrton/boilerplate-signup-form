@@ -6,3 +6,9 @@
   display: flex;
   flex: 1 100%;
 }
+
+.flex-section-fill-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 100% ! important;
+}

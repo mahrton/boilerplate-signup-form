@@ -5,11 +5,35 @@
       <app-text-field title="First name" [control]="firstName"></app-text-field>
       <app-text-field title="Last name" [control]="lastName"></app-text-field>
       <app-email-field title="Email" [control]="email"></app-email-field>
+      <mat-error *ngIf="email.dirty && email.errors">
+        <span>
+          Email address is invalid
+        </span>
+      </mat-error>
       <app-email-field title="Verify email" [control]="emailVerify"></app-email-field>
+      <mat-error *ngIf="emailVerify.dirty && email.valid && emailVerify.errors">
+        <span>
+          Email address does not match
+        </span>
+      </mat-error>
       <app-password-field title="Password" [control]="password"></app-password-field>
-      <button type="button" class="footer-button" (click)="submit()" mat-raised-button color="accent" *ngIf="signUpForm.valid">
-        Sign up
-      </button>
+      <mat-error class="error-message" *ngIf="password.dirty && password.errors">
+        <span>
+          Please provide a strong password - it has to be minimum 8 characters, cannot contain your first and last name,
+           and has to contain uppercase and lowercase letters
+        </span>
+      </mat-error>
+      <app-password-field title="Verify password" [control]="passwordVerify"></app-password-field>
+      <mat-error *ngIf="passwordVerify.dirty && passwordVerify.errors">
+        <span>
+          Passwords do not match
+        </span>
+      </mat-error>
+      <div class="flex-section-fill-right">
+        <button type="button" class="footer-button" (click)="submit()" mat-raised-button color="accent" *ngIf="signUpForm.valid">
+          Sign up
+        </button>
+      </div>
     </form>
   </mat-card>
 </div>

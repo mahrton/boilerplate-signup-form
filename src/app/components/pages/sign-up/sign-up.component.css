@@ -8,3 +8,7 @@
 .page-wrapper-narrow {
   width: 400px;
 }
+
+.mat-error {
+  margin-bottom: 2vh;
+}
