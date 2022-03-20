@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/fedex-login'),
+      dir: require('path').join(__dirname, './coverage/fedex-signup'),
       subdir: '.',
       reporters: [
         { type: 'html' },
