@@ -7,7 +7,7 @@ export const emailVerifyValidator = (emailControl: FormControl): Array<(control:
   Validators.required,
   (emailVerifyControl: AbstractControl): ValidationErrors | null => {
     if(trim('' + emailControl.value) != trim('' + emailVerifyControl.value)) {
-      return {emailP_verify: false}
+      return {email_verify: false}
     }
     return null;
   }
