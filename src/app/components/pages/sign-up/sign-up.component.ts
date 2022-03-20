@@ -7,6 +7,8 @@ import {
   passwordVerifyValidator,
   requiredValidator
 } from "../../../global/validators";
+import {UserApiService} from "../../../services/user-api.service";
+import {IUser, IUserSignUpRequest} from "../../../services/user";
 
 @Component({
   selector: 'app-sign-up',
@@ -28,14 +30,21 @@ export class SignUpComponent {
     password: this.password,
     passwordVerify: this.passwordVerify
   });
+  notFinished = false;
+  error = false;
 
-  constructor() { }
+  constructor(private userApiService: UserApiService) { }
 
   submit() {
     if (this.signUpForm.valid) {
-      // will submit
+      this.userApiService
+        .postUser(this.signUpForm.value as IUserSignUpRequest)
+        .subscribe({
+          next: response => true,
+          error: () => this.error = true
+        })
     } else {
-      // won't submit until it is valid
+      this.notFinished = true;
     }
   }
 }

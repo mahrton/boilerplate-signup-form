@@ -21,7 +21,10 @@
         <span>{{ 'VALIDATION.PASSWORD_VERIFY_MISMATCH' | translate }}</span>
       </mat-error>
       <div class="flex-section-fill-right">
-        <button type="button" class="footer-button" (click)="submit()" mat-raised-button color="accent" *ngIf="signUpForm.valid">
+        <mat-error *ngIf="notFinished && !signUpForm.valid">
+          <span>{{ 'VALIDATION.FINISH_FORM' | translate }}</span>
+        </mat-error>
+        <button type="button" class="footer-button" (click)="submit()" mat-raised-button color="accent">
           {{ 'BUTTONS.SUBMIT' | translate }}
         </button>
       </div>
