@@ -9,6 +9,8 @@ import {
 } from "../../../global/validators";
 import {UserApiService} from "../../../services/user-api.service";
 import {IUser, IUserSignUpRequest} from "../../../services/user";
+import {take} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -33,14 +35,15 @@ export class SignUpComponent {
   notFinished = false;
   error = false;
 
-  constructor(private userApiService: UserApiService) { }
+  constructor(private userApiService: UserApiService, private router: Router) { }
 
   submit() {
     if (this.signUpForm.valid) {
       this.userApiService
         .postUser(this.signUpForm.value as IUserSignUpRequest)
+        .pipe(take(1))
         .subscribe({
-          next: response => true,
+          next: response => this.router.navigate(['/success']),
           error: () => this.error = true
         })
     } else {

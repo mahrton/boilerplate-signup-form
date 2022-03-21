@@ -1,0 +1,11 @@
+.success-page-wrapper {
+  width: 100%;
+  margin-top: 2vw;
+  display: flex;
+  justify-content: center;
+}
+
+.success-wrapper {
+  width: 400px;
+  height: 200px;
+}

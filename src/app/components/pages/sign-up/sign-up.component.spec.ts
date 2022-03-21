@@ -1,9 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SignUpComponent } from './sign-up.component';
-import {TextFieldComponent} from "../../fields/text-field/text-field.component";
-import {PasswordFieldComponent} from "../../fields/password-field/password-field.component";
-import {EmailFieldComponent} from "../../fields/email-field/email-field.component";
+import {SignUpComponent} from './sign-up.component';
 import {AppModule} from "../../../app.module";
 
 describe('SignUpComponent', () => {

@@ -1,5 +1,6 @@
 {
   "BUTTONS": {
+    "RETURN": "Return",
     "SUBMIT": "Submit"
   },
   "FIELDS": {
@@ -9,6 +10,9 @@
     "LAST_NAME": "Last name",
     "PASSWORD": "Password",
     "PASSWORD_VERIFY": "Verify password"
+  },
+  "MESSAGES": {
+    "SIGNUP_SUCCESSFUL": "Your account has successfully been created."
   },
   "VALIDATION": {
     "EMAIL_INVALID": "Email address is invalid",

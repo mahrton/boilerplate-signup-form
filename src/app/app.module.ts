@@ -17,6 +17,7 @@ import {FooterComponent} from './components/global/footer/footer.component';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { SuccessComponent } from './components/pages/success/success.component';
 
 // translations loader
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,7 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     EmailFieldComponent,
     SignUpComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SuccessComponent
   ],
     imports: [
         BrowserModule,
