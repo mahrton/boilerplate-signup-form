@@ -6,7 +6,7 @@ import {
   passwordValidator,
   passwordVerifyValidator,
   requiredValidator
-} from "../../../global/validators";
+} from "../../../shared/validators";
 import {UserApiService} from "../../../services/user-api.service";
 import {IUser, IUserSignUpRequest} from "../../../services/user";
 import {take} from "rxjs";

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormControl} from "@angular/forms";
-import {TranslationKey} from "../../../global/types";
+import {TranslationKey} from "../../../shared/types";
 
 @Component({
   selector: 'app-text-field',
