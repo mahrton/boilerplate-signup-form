@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {
   emailValidator,
@@ -8,8 +8,8 @@ import {
   requiredValidator
 } from "../../../shared/validators";
 import {UserApiService} from "../../../services/user-api.service";
-import {IUser, IUserSignUpRequest} from "../../../services/user";
-import {take} from "rxjs";
+import {IUserSignUpRequest, UserSignUpRequest} from "../../../services/user";
+import {Subject, take, takeUntil} from "rxjs";
 import {Router} from "@angular/router";
 
 @Component({
@@ -17,7 +17,7 @@ import {Router} from "@angular/router";
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   firstName = new FormControl(null, requiredValidator());
   lastName = new FormControl(null, requiredValidator());
   email = new FormControl(null, emailValidator());
@@ -34,20 +34,36 @@ export class SignUpComponent {
   });
   notFinished = false;
   error = false;
+  loading = false;
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(private userApiService: UserApiService, private router: Router) { }
+  constructor(private userApiService: UserApiService, private router: Router) {}
+
+  ngOnInit(): void {
+        this.email.valueChanges
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe(() => this.emailVerify.updateValueAndValidity({onlySelf: true}))
+        this.password.valueChanges
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe(() => this.passwordVerify.updateValueAndValidity({onlySelf: true}))
+    }
 
   submit() {
     if (this.signUpForm.valid) {
+      this.loading = true;
       this.userApiService
-        .postUser(this.signUpForm.value as IUserSignUpRequest)
+        .createUser(new UserSignUpRequest(this.signUpForm.value))
         .pipe(take(1))
         .subscribe({
           next: response => this.router.navigate(['/success']),
-          error: () => this.error = true
+          error: () => {
+            this.error = true;
+            this.loading = false;
+          }
         })
     } else {
       this.notFinished = true;
     }
+
   }
 }

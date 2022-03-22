@@ -11,7 +11,7 @@ export class UserApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  postUser(userSignUpRequest: IUserSignUpRequest): Observable<IUser> {
+  createUser(userSignUpRequest: IUserSignUpRequest): Observable<IUser> {
     return this.httpClient.post<IUser>(this.userApiUrl, userSignUpRequest);
   }
 }

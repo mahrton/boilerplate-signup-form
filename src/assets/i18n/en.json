@@ -3,6 +3,9 @@
     "RETURN": "Return",
     "SUBMIT": "Submit"
   },
+  "ERROR": {
+    "SIGNUP_FORM_SUBMIT": "There has been an error please check your internet connection"
+  },
   "FIELDS": {
     "EMAIL": "Email",
     "EMAIL_VERIFY": "Verify email",
