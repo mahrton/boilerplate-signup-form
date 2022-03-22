@@ -26,12 +26,12 @@ describe('UserApiService', () => {
   });
 
   describe('createUser', () => {
+    const expectedResponse = {
+      firstName: 'aa',
+      lastName: 'bb',
+      email: 'aa@bb.cc'
+    };
     it('call create user endpoint and send back same object without password', () => {
-      const expectedResponse = {
-        firstName: 'aa',
-        lastName: 'bb',
-        email: 'aa@bb.cc'
-      };
       service.createUser({
         firstName: 'aa',
         lastName: 'bb',
