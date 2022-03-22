@@ -24,7 +24,10 @@
         <mat-error *ngIf="notFinished && !signUpForm.valid">
           <span>{{ 'VALIDATION.FINISH_FORM' | translate }}</span>
         </mat-error>
-        <button type="button" class="footer-button" (click)="submit()" mat-raised-button color="accent">
+        <mat-error *ngIf="error">
+          <span>{{ 'ERROR.SIGNUP_FORM_SUBMIT' | translate }}</span>
+        </mat-error>
+        <button type="button" class="footer-button" [class.spinner]="loading" [disabled]="loading" (click)="submit()" mat-raised-button color="accent">
           {{ 'BUTTONS.SUBMIT' | translate }}
         </button>
       </div>
