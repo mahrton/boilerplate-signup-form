@@ -1,9 +1,9 @@
-import {AbstractControl, FormControl, ValidationErrors, Validators} from "@angular/forms";
+import {AbstractControl, UntypedFormControl, ValidationErrors, Validators} from "@angular/forms";
 import {trim, toLower} from 'lodash';
 
 export const requiredValidator = (): Array<(control: AbstractControl) => ValidationErrors | null> => [Validators.required];
 export const emailValidator = (): Array<(control: AbstractControl) => ValidationErrors | null> => [Validators.required, Validators.email];
-export const emailVerifyValidator = (emailControl: FormControl): Array<(control: AbstractControl) => ValidationErrors | null> => [
+export const emailVerifyValidator = (emailControl: UntypedFormControl): Array<(control: AbstractControl) => ValidationErrors | null> => [
   Validators.required,
   (emailVerifyControl: AbstractControl): ValidationErrors | null => {
     if(trim('' + emailControl.value) != trim('' + emailVerifyControl.value)) {
@@ -13,7 +13,7 @@ export const emailVerifyValidator = (emailControl: FormControl): Array<(control:
   }
 ];
 
-export const passwordValidator = (firstNameControl: FormControl, lastNameControl: FormControl): Array<(control: AbstractControl) => ValidationErrors | null> => [
+export const passwordValidator = (firstNameControl: UntypedFormControl, lastNameControl: UntypedFormControl): Array<(control: AbstractControl) => ValidationErrors | null> => [
   Validators.required,
   Validators.minLength(8),
   Validators.pattern(/[a-z]/),
@@ -29,7 +29,7 @@ export const passwordValidator = (firstNameControl: FormControl, lastNameControl
   }
 ];
 
-export const passwordVerifyValidator = (passwordControl: FormControl): Array<(control: AbstractControl) => ValidationErrors | null> => [
+export const passwordVerifyValidator = (passwordControl: UntypedFormControl): Array<(control: AbstractControl) => ValidationErrors | null> => [
   Validators.required,
   (passwordVerifyControl: AbstractControl): ValidationErrors | null => {
     if(trim('' + passwordControl.value) != trim('' + passwordVerifyControl.value)) {

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {
   emailValidator,
   emailVerifyValidator,
@@ -18,13 +18,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  firstName = new FormControl(null, requiredValidator());
-  lastName = new FormControl(null, requiredValidator());
-  email = new FormControl(null, emailValidator());
-  emailVerify = new FormControl(null, emailVerifyValidator(this.email));
-  password = new FormControl(null, passwordValidator(this.firstName, this.lastName));
-  passwordVerify = new FormControl(null, passwordVerifyValidator(this.password));
-  signUpForm: FormGroup = new FormGroup({
+  firstName = new UntypedFormControl(null, requiredValidator());
+  lastName = new UntypedFormControl(null, requiredValidator());
+  email = new UntypedFormControl(null, emailValidator());
+  emailVerify = new UntypedFormControl(null, emailVerifyValidator(this.email));
+  password = new UntypedFormControl(null, passwordValidator(this.firstName, this.lastName));
+  passwordVerify = new UntypedFormControl(null, passwordVerifyValidator(this.password));
+  signUpForm: UntypedFormGroup = new UntypedFormGroup({
     firstName: this.firstName,
     lastName: this.lastName,
     email: this.email,
